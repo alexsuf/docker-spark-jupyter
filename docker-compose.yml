@@ -1,0 +1,17 @@
+version: '3.8'
+# -------------------------------------
+# Запускаем команду: docker compose up
+#   Ищем URL в логах типа: http://127.0.0.1:8888/lab?token=18d277e9afbeb912fed2d6cd3d5286c0db6c6f74829c6f8c
+#   Открываем браузер по этой ссылке
+# ------------------------------------
+services:
+  spark_notebook:
+    image: alexsuf/spark_jupyter
+    container_name: spark
+    environment:
+      TZ: Europe/Moscow
+    ports:
+      - 8888:8888
+    volumes:
+      - ./work:/home/jovyan/work
+    restart: always
